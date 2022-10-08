@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>BGS Guest Counter</title>
+	</head>
+
+	<body>
+		<h1>Guests counter</h1>
+		<h4>
+			<% const date = new Date(); %>
+			<%= date.getHours(); %>:00 - <%= date.getHours() + 1 ; %>:00
+		</h4>
+		<p id="currentGuests"><%= currentGuests %></p>
+		<form>
+			<input type="number" id="number" placeholder="0">
+			<button type="submit">Inserisci</button>
+		</form>
+		<br>
+		<a href="/list">List all day</a>
+	</body>
+	<script src="/JS/index.js"></script>
+
+</html>

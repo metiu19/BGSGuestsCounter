@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>BGS Guest Counter | List</title>
+		<style>
+			table, th,td {
+				border: 1px solid black;
+			}
+		</style>
+		<%
+			const date = new Date(); 
+			var totalGuests = 0;
+			for(const hour in dayGuests) {
+				totalGuests += dayGuests[hour];
+			}
+		%>
+	</head>
+
+	<body>
+		<h1>Guests di oggi</h1>
+		<h4><%= date.getDate() %>/<%= date.getMonth() + 1 %>/<%= date.getFullYear() %></h4>
+		<p>Totali: <%= totalGuests %></p>
+		<table>
+			<tr>
+				<th>Fascia oraria</th>
+				<th>Numero Guests</th>
+			</tr>
+			<% for(const hour in dayGuests) { %>
+			<tr>
+				<td><%= hour %></td>
+				<td><%= dayGuests[hour] %></td>
+			</tr>
+			<% } %>
+		</table>
+		<br>
+		<a href="/">Go back</a>
+	</body>
+
+</html>
