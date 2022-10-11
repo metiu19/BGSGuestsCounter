@@ -11,6 +11,9 @@ const getCurrentGuests = (date = new Date()) => {
 
 const updateCurrentGuests = async (guests, date = new Date()) => {
 	guests = parseInt(guests);
+	if (!Data[`${date.getDate()}-${date.getMonth()}`]) {
+		Data[`${date.getDate()}-${date.getMonth()}`] = {};
+	}
 	Data[`${date.getDate()}-${date.getMonth()}`][date.getHours()] = parseInt(getCurrentGuests()) + guests;
 	fs.writeFileSync(FileName, JSON.stringify(Data));
 };
