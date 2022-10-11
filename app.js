@@ -6,7 +6,7 @@ const API = require('./Routes/API');
 const UI = require('./Routes/UI');
 
 app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname + '/public')));
+app.use(express.static(path.join(__dirname + '/Public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {

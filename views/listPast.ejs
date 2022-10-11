@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>BGS Guests Counter | Past Days</title>
+		<script src="/JS/pastDays.js" defer></script>
+		<style>
+			body {
+				background-color: rgb(45, 45, 45);
+				color: white;
+			}
+
+			a {
+				color: lightblue;
+				border: 1px solid white;
+				border-radius: 5px;
+				padding: 3px;
+			}
+
+			table,
+			th,
+			td {
+				border: 1px solid white;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<h1>Past Days Guests List</h1>
+		<p>Seleziona una data:</p>
+		<form>
+			<input type="date" name="date" id="date">
+			<button type="submit">Cerca</button>
+			<p id="feedback"></p>
+		</form>
+		<div id="data"></div>
+		<br>
+		<a href="/">Go to home</a>
+		<a href="/list">Go to list</a>
+	</body>
+
+</html>

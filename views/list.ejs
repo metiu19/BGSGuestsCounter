@@ -3,10 +3,20 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>BGS Guest Counter | List</title>
+		<title>BGS Guests Counter | List</title>
 		<style>
+			body {
+				background-color: rgb(45, 45, 45);
+				color: white;
+			}
+			a {
+				color: lightblue;
+				border: 1px solid white;
+				border-radius: 5px;
+				padding: 3px;
+			}
 			table, th,td {
-				border: 1px solid black;
+				border: 1px solid white;
 			}
 		</style>
 		<%
@@ -28,14 +38,15 @@
 				<th>Numero Guests</th>
 			</tr>
 			<% for(const hour in dayGuests) { %>
-			<tr>
-				<td><%= hour %></td>
-				<td><%= dayGuests[hour] %></td>
-			</tr>
+				<tr>
+					<td><%= hour %>:00 - <%= parseInt(hour) + 1 %>:00</td>
+					<td><%= dayGuests[hour] %></td>
+				</tr>
 			<% } %>
 		</table>
 		<br>
-		<a href="/">Go back</a>
+		<a href="/">Go to home</a>
+		<a href="/listPast">See past days</a>
 	</body>
 
 </html>

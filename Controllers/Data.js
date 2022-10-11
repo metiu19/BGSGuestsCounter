@@ -2,27 +2,22 @@ const fs = require('fs');
 const FileName = 'storage.json';
 
 let Data = JSON.parse(fs.readFileSync(FileName).toString());
+console.log(Data);
 
-const getCurrentGuests = () => {
-	const date = new Date();
-	// console.log(Data, `${date.getDate()}-${date.getMonth()}`, date.getHours());
-	// console.dir(Data[`${date.getDate()}-${date.getMonth()+1}`][date.getHours()]);
-	const ret = Data[`${date.getDate()}-${date.getMonth()}`][date.getHours()];
+const getCurrentGuests = (date = new Date()) => {
+	const ret = getDayGuests(date)[date.getHours()];
 	return ret != undefined ? ret : 0;
 };
 
-const updateCurrentGuests = async (guests) => {
+const updateCurrentGuests = async (guests, date = new Date()) => {
 	guests = parseInt(guests);
-	const date = new Date();
 	Data[`${date.getDate()}-${date.getMonth()}`][date.getHours()] = parseInt(getCurrentGuests()) + guests;
 	fs.writeFileSync(FileName, JSON.stringify(Data));
 };
 
-const getDayGuests = () => {
-	const date = new Date();
-	// console.log(Data, `${date.getDate()}-${date.getMonth()}`, date.getHours());
-	// console.dir(Data[`${date.getDate()}-${date.getMonth()+1}`][date.getHours()]);
-	return Data[`${date.getDate()}-${date.getMonth()}`];
+const getDayGuests = (date = new Date()) => {
+	const ret = Data[`${date.getDate()}-${date.getMonth()}`];
+	return ret != undefined ? ret : {};
 };
 
 module.exports = {

@@ -10,4 +10,7 @@ router.get('/list', (req, res) => {
 	res.status(200).render('list', {dayGuests: getDayGuests()});
 });
 
+router.get('/listPast', (req, res) => {
+	res.status(200).render('listPast');
+});
 module.exports = router;

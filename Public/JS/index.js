@@ -1,9 +1,12 @@
 const currentGuests = document.querySelector('#currentGuests');
 const form = document.querySelector('form');
 const guestControl = document.querySelector('#number');
+const feedback = document.querySelector('#feedback');
 
 form.addEventListener('submit', async (e) => {
 	e.preventDefault();
+	feedback.textContent = 'Loading...';
+
 	const guests = guestControl.value;
 
 	try {
@@ -16,7 +19,9 @@ form.addEventListener('submit', async (e) => {
 
 		if (data.err) return console.error(data.err);
 		currentGuests.textContent = data.data;
-		guestControl.value = 0;
+		guestControl.value = '';
+
+		feedback.textContent = '';
 	} catch (err) {
 		console.error(err);
 	}
