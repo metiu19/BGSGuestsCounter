@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require('helmet');
 const app = express();
 const Port = 3000;
 const path = require('path');
@@ -6,6 +7,7 @@ const API = require('./Routes/API');
 const UI = require('./Routes/UI');
 
 app.set('view engine', 'ejs');
+app.use(helmet());
 app.use(express.static(path.join(__dirname + '/Public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
